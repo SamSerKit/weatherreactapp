@@ -25,6 +25,14 @@ export default function Weather() {
           31°C | °F
         </h2>
       </div>
+      <div>
+        <p>
+          <a href src="https://github.com/SamSerKit/weatherreactapp">
+            Open Source Code
+          </a>{" "}
+          By Sam Blanchard
+        </p>
+      </div>
     </div>
   );
 }
