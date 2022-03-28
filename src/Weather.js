@@ -22,13 +22,7 @@ export default function Weather() {
         />
         <h2>
           <span id="currentTemp"></span>
-          <a href="#" id="celsius" className="active">
-            31°C
-          </a>{" "}
-          |
-          <a href="#" id="fahrenheit">
-            °F
-          </a>
+          31°C | °F
         </h2>
       </div>
     </div>

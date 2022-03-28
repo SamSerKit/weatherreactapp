@@ -54,7 +54,7 @@ export default function Search() {
           <br />
           The humidity is: {Math.round(weather.humidity)}%
           <br />
-          <img src={weather.icon} />
+          <img alt="weather icon" src={weather.icon} />
         </p>
       </div>
     );
