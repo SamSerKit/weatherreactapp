@@ -11,8 +11,8 @@ export default function App() {
         </div>
         <div className="footer">
           <p>
-            <a href src="https://github.com/SamSerKit/weatherreactapp">
-              Open Source Code
+            <a href="https://github.com/SamSerKit/weatherreactapp">
+              Open-Source Code
             </a>{" "}
             By Sam Blanchard
           </p>
