@@ -25,7 +25,7 @@ export default function WeatherForecastDay(props) {
     <div>
       <ul>
         <li>
-          <img src={iconURL} id="weather-icon" alt="weather icon" />
+          <img src={iconURL} alt="weather icon" />
         </li>
         <li>
           {Math.round(props.data.temp.max)}°C /{" "}
