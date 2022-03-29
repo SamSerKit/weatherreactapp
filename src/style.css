@@ -19,13 +19,19 @@ ul {
   padding: 0;
 }
 
-.weather-app {
+.weather-container {
   max-width: 800px;
-  margin: 60px auto;
+  margin: 50px auto;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 16px;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
   padding: 20px;
+}
+
+.container {
+  display: block;
+  margin: 10 auto;
+  padding: 15px 15px 15px 15px;
 }
 
 .search {
@@ -54,11 +60,6 @@ ul {
   font-weight: 400;
   padding-top: 20px;
 }
-.container {
-  display: block;
-  margin: 10 auto;
-  padding: 15px 15px 15px 15px;
-}
 
 .current-weather {
   font-size: 20px;
@@ -78,5 +79,5 @@ ul {
 .footer {
   font-size: 8px;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 0px;
 }

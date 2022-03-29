@@ -1,41 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
+import axios from "axios";
 
-export default function Weather() {
-  return (
-    <div className="container">
-      <div className="current">
-        <div>
-          <h1 className="cityName">Melbourne</h1>
-          <span className="currWeatherDetailed">
-            <ul>
-              <li>Updated: 17:52 Sunday 13th February</li>
-              <li>Partly Sunny</li>
-              <li>Feels like 31°c</li>
-              <li>Wind Speed: 3 m/s</li>
-            </ul>
-          </span>
-        </div>
-        <div className="weather-temperature">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            id="weather-icon"
-            alt=""
-          />
-          <h2>
-            <span id="currentTemp"></span>
-            31°C | °F
-          </h2>
-        </div>
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
-        <div className="footer">
-          <p>
-            <a href src="https://github.com/SamSerKit/weatherreactapp">
-              Open Source Code
-            </a>{" "}
-            By Sam Blanchard
-          </p>
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function search() {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=214cd21ef5b7a8732f19634dcd0aa2e7`;
+    axios.get(url).then(showWeather);
+  }
+
+  function showWeather(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new DataTransfer(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="row">
+        <div className="col search">
+          <form id="citySearch">
+            <input
+              type="search"
+              placeholder="City Search"
+              className="city-input"
+              id="city-input"
+              onChange={updateCity}
+            />
+            <input
+              type="submit"
+              className="city-button"
+              value="Submit"
+              onClick={handleSubmit}
+            />
+          </form>
         </div>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
