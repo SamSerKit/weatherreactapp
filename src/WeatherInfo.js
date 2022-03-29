@@ -1,4 +1,5 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 
 export default function WeatherInfo(props) {
   return (
@@ -8,10 +9,16 @@ export default function WeatherInfo(props) {
           <h1 className="cityName">{props.data.city}</h1>
           <span className="currWeatherDetailed">
             <ul>
-              <li>Updated: 17:52 Sunday 13th February</li>
+              <li>
+                <small>
+                  <FormattedDate date={props.data.date} />
+                </small>
+              </li>
+              <br />
               <li className="text-capitalize">{props.data.description}</li>
-              <li>Feels like 31°c</li>
-              <li>Wind Speed: {props.data.wind} km/s</li>
+              <li>Feels like {props.data.feels}°c</li>
+              <li>Wind: {props.data.wind} km/s</li>
+              <li>Humidity: {props.data.humidity}% </li>
             </ul>
           </span>
         </div>

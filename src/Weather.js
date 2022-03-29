@@ -26,11 +26,12 @@ export default function Weather(props) {
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
-      date: new DataTransfer(response.data.dt * 1000),
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
+      feels: response.data.main.feels_like,
     });
   }
 
